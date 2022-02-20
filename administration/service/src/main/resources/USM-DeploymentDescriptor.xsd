@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns="deployment.domain.administration.usm.mare.ec.europa.eu"
-            targetNamespace="deployment.domain.administration.usm.mare.ec.europa.eu"
+            xmlns="deployment.domain.administration.usm.uvms.focus.fish"
+            targetNamespace="deployment.domain.administration.usm.uvms.focus.fish"
             version="1.0">
     
     <xsd:element name="application">

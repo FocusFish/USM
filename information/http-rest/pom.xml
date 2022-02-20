@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>eu.europa.ec.mare.usm</groupId>
+		<groupId>fish.focus.uvms.usm</groupId>
 		<artifactId>Information-Module</artifactId>
 		<version>2.2.13-SNAPSHOT</version>
 	</parent>
@@ -186,7 +186,7 @@
 					</webResources>
 					<overlays>
 						<overlay>
-							<groupId>eu.europa.ec.mare.usm</groupId>
+							<groupId>fish.focus.uvms.usm</groupId>
 							<artifactId>Information-Rest-Service</artifactId>
 						</overlay>
 					</overlays>
@@ -197,7 +197,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>eu.europa.ec.mare.usm</groupId>
+			<groupId>fish.focus.uvms.usm</groupId>
 			<artifactId>Information-Rest-Service</artifactId>
 			<version>2.2.13-SNAPSHOT</version>
 			<type>war</type>

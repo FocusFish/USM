@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>eu.europa.ec.mare.usm</groupId>
+		<groupId>fish.focus.uvms.usm</groupId>
 		<version>2.2.13-SNAPSHOT</version>
 		<artifactId>backend-modules</artifactId>
 		<relativePath>../pom.xml</relativePath>
