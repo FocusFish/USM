@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>eu.europa.ec.mare.usm</groupId>
+		<groupId>fish.focus.uvms.usm</groupId>
 		<artifactId>Authentication-Module</artifactId>
-		<version>2.2.13-SNAPSHOT</version>
+		<version>2.2.13</version>
 	</parent>
 	<artifactId>Authentication-http-Rest-Service</artifactId>
 	<packaging>war</packaging>
@@ -183,7 +183,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>eu.europa.ec.mare.usm</groupId>
+			<groupId>fish.focus.uvms.usm</groupId>
 			<artifactId>Authentication-Service</artifactId>
 		</dependency>
 		<dependency>
@@ -219,13 +219,13 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>eu.europa.ec.fisheries.uvms.commons</groupId>
+			<groupId>fish.focus.uvms.commons</groupId>
 			<artifactId>uvms-commons-message</artifactId>
 			<version>${uvms.commons.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>eu.europa.ec.fisheries.uvms.commons</groupId>
+			<groupId>fish.focus.uvms.commons</groupId>
 			<artifactId>uvms-commons-date</artifactId>
 			<version>${uvms.commons.version}</version>
 		</dependency>

@@ -5,11 +5,11 @@
 	<parent>
 		<groupId>fish.focus.uvms.maven</groupId>
 		<artifactId>uvms-pom</artifactId>
-		<version>3.8</version>
+		<version>3.16</version>
 	</parent>
 
-	<groupId>eu.europa.ec.mare.usm</groupId>
-	<version>2.2.13-SNAPSHOT</version>
+	<groupId>fish.focus.uvms.usm</groupId>
+	<version>2.2.13</version>
 	<artifactId>backend-modules</artifactId>
 	<packaging>pom</packaging>
 
@@ -17,7 +17,7 @@
 		<cas.client.core>3.6.1</cas.client.core>
 		<docker.dev.version>4.1.2</docker.dev.version>
 		<uvms.pom.version>3.8</uvms.pom.version>
-		<uvms.commons.version>4.1.11</uvms.commons.version>
+		<uvms.commons.version>4.1.12</uvms.commons.version>
 		<sun.jersey.version>1.19.4</sun.jersey.version>
 		<guava.version>31.0.1-jre</guava.version>
 		<usm4uvms.version>4.1.9</usm4uvms.version>
@@ -80,23 +80,11 @@
 	</modules>
 
 	<scm>
-		<connection>scm:git:https://github.com/UnionVMS/USM.git</connection>
-		<url>https://github.com/UnionVMS/USM</url>
+		<connection>scm:git:https://github.com/FocusFish/USM.git</connection>
+		<url>https://github.com/FocusFish/USM</url>
 		<tag>HEAD</tag>
 	</scm>
 
-	<distributionManagement>
-		<repository>
-			<id>focus-releases</id>
-			<name>UnionVms Repository</name>
-			<url>http://nexus.focus.fish/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>focus-snapshots</id>
-			<name>UnionVms Snapshot Repository</name>
-			<url>http://nexus.focus.fish/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -111,7 +99,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.8.2</version>
 				<configuration>
 					<deployAtEnd>true</deployAtEnd>
 				</configuration>

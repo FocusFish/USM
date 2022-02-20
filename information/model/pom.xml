@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>eu.europa.ec.mare.usm</groupId>
+		<groupId>fish.focus.uvms.usm</groupId>
 		<artifactId>Information-Module</artifactId>
-		<version>2.2.13-SNAPSHOT</version>
+		<version>2.2.13</version>
 	</parent>
 	<artifactId>Information-Model</artifactId>
 	<packaging>jar</packaging>
