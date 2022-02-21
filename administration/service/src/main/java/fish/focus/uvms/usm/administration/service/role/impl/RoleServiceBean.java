@@ -1,6 +1,6 @@
 package fish.focus.uvms.usm.administration.service.role.impl;
 
-import eu.europa.ec.fisheries.uvms.audit.model.mapper.AuditLogModelMapper;
+import fish.focus.uvms.audit.model.mapper.AuditLogModelMapper;
 import fish.focus.uvms.usm.information.entity.FeatureEntity;
 import fish.focus.uvms.usm.information.entity.RoleEntity;
 import fish.focus.uvms.usm.information.entity.UserContextEntity;

@@ -1,6 +1,6 @@
 package fish.focus.uvms.usm.administration.service.user.impl;
 
-import eu.europa.ec.fisheries.uvms.audit.model.mapper.AuditLogModelMapper;
+import fish.focus.uvms.audit.model.mapper.AuditLogModelMapper;
 import fish.focus.uvms.usm.information.entity.*;
 import fish.focus.uvms.usm.administration.domain.*;
 import fish.focus.uvms.usm.administration.service.AuditProducer;

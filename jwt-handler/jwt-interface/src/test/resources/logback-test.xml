@@ -24,7 +24,7 @@
     </encoder>
   </appender>
   
-  <logger name="eu.europa.ec.mare" level="DEBUG">
+  <logger name="fish.focus.uvms" level="DEBUG">
     <appender-ref ref="logFile" />
   </logger>
 

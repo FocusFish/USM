@@ -11,7 +11,7 @@ copy of the GNU General Public License along with the IFDM Suite. If not, see <h
 package fish.focus.uvms.usm;
 
 import fish.focus.uvms.commons.date.JsonBConfigurator;
-import eu.europa.ec.fisheries.uvms.rest.security.InternalRestTokenHandler;
+import fish.focus.uvms.rest.security.InternalRestTokenHandler;
 import org.eu.ingwar.tools.arquillian.extension.suite.annotations.ArquillianSuiteDeployment;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.Archive;

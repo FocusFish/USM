@@ -20,7 +20,7 @@
 		<uvms.commons.version>4.1.12</uvms.commons.version>
 		<sun.jersey.version>1.19.4</sun.jersey.version>
 		<guava.version>31.0.1-jre</guava.version>
-		<usm4uvms.version>4.1.9</usm4uvms.version>
+		<usm4uvms.version>4.1.10</usm4uvms.version>
 	</properties>
 
 	<dependencyManagement>

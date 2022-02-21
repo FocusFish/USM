@@ -80,7 +80,7 @@ public class DeploymentFactory {
                         "fish.focus.uvms.usm:Authentication-Service",
                         "fish.focus.uvms.usm:Information-Model",
                         "fish.focus.uvms.usm:Authentication-Model",
-                        "eu.europa.ec.fisheries.uvms.audit:audit-model")
+                        "fish.focus.uvms.audit:audit-model")
                 .withoutTransitivity().asFile();
         war.addAsLibraries(files);
         return war;
