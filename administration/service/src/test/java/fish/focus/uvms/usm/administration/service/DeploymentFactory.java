@@ -35,9 +35,8 @@ import java.io.File;
 
 @ArquillianSuiteDeployment
 public class DeploymentFactory {
-    private static final String AUDIT_GROUP_ID = "eu.europa.ec.mare.auditing";
-    private static final String USM_GROUP_ID = "eu.europa.ec.mare.usm";
-    private static final String UVMS_AUDIT_GROUP_ID = "eu.europa.ec.fisheries.uvms.audit";
+    private static final String USM_GROUP_ID = "fish.focus.uvms.usm";
+    private static final String UVMS_AUDIT_GROUP_ID = "fish.focus.uvms.audit";
 
     @Deployment
     public static WebArchive createDeployment() {

@@ -48,8 +48,8 @@ public abstract class BuildAuthenticationRestDeployment {
 
         testWar.addAsLibraries(files);
 
-        testWar.addPackages(true, "eu.europa.ec.mare.usm.authentication.rest");
-        testWar.addPackages(true, "eu.europa.ec.mare.usm.session.rest.service");
+        testWar.addPackages(true, "fish.focus.uvms.usm.authentication.rest");
+        testWar.addPackages(true, "fish.focus.uvms.usm.session.rest.service");
 
         testWar.delete("/WEB-INF/web.xml");
         return testWar;

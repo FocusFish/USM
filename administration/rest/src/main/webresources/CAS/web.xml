@@ -18,7 +18,7 @@
     </init-param>
     <init-param>
       <param-name>authenticationRedirectStrategyClass</param-name>
-      <param-value>eu.europa.ec.mare.usm.administration.cas.CASAuthenticationRedirectStrategy</param-value>
+      <param-value>fish.focus.uvms.usm.administration.cas.CASAuthenticationRedirectStrategy</param-value>
     </init-param>    
     
   </filter>
