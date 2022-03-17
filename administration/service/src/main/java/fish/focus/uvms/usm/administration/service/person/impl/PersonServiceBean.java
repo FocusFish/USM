@@ -1,6 +1,6 @@
 package fish.focus.uvms.usm.administration.service.person.impl;
 
-import eu.europa.ec.fisheries.uvms.audit.model.mapper.AuditLogModelMapper;
+import fish.focus.uvms.audit.model.mapper.AuditLogModelMapper;
 import fish.focus.uvms.usm.information.entity.PendingDetailsEntity;
 import fish.focus.uvms.usm.information.entity.PersonEntity;
 import fish.focus.uvms.usm.information.entity.UserEntity;

@@ -11,7 +11,7 @@ copy of the GNU General Public License along with the IFDM Suite. If not, see <h
 package fish.focus.uvms.usm;
 
 import fish.focus.uvms.commons.date.JsonBConfigurator;
-import eu.europa.ec.fisheries.uvms.rest.security.InternalRestTokenHandler;
+import fish.focus.uvms.rest.security.InternalRestTokenHandler;
 import org.eu.ingwar.tools.arquillian.extension.suite.annotations.ArquillianSuiteDeployment;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.Archive;
@@ -48,8 +48,8 @@ public abstract class BuildAuthenticationRestDeployment {
 
         testWar.addAsLibraries(files);
 
-        testWar.addPackages(true, "eu.europa.ec.mare.usm.authentication.rest");
-        testWar.addPackages(true, "eu.europa.ec.mare.usm.session.rest.service");
+        testWar.addPackages(true, "fish.focus.uvms.usm.authentication.rest");
+        testWar.addPackages(true, "fish.focus.uvms.usm.session.rest.service");
 
         testWar.delete("/WEB-INF/web.xml");
         return testWar;
