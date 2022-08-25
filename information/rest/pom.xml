@@ -231,7 +231,7 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-json-binding</artifactId>
-			<version>3.0.4</version>
+			<version>3.0.6</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
