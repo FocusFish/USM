@@ -213,19 +213,19 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-client</artifactId>
-			<version>2.32</version>
+			<version>${org.glassfish.jersey.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.inject</groupId>
 			<artifactId>jersey-hk2</artifactId>
-			<version>3.1.5</version>
+			<version>${org.glassfish.jersey.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-json-binding</artifactId>
-			<version>3.1.5</version>
+			<version>${org.glassfish.jersey.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
