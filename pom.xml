@@ -20,7 +20,7 @@
 		<uvms.commons.version>4.1.15</uvms.commons.version>
 		<sun.jersey.version>1.19.4</sun.jersey.version>
 		<org.glassfish.jersey.version>2.38</org.glassfish.jersey.version>
-		<usm4uvms.version>4.1.12</usm4uvms.version>
+		<usm4uvms.version>4.2.0</usm4uvms.version>
 	</properties>
 
 	<dependencyManagement>
