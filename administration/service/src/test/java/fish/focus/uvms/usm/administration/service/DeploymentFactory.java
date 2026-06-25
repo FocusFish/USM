@@ -35,12 +35,19 @@ import java.io.File;
 
 @ArquillianSuiteDeployment
 public class DeploymentFactory {
-    private static final String USM_GROUP_ID = "fish.focus.uvms.usm";
-    private static final String UVMS_AUDIT_GROUP_ID = "fish.focus.uvms.audit";
 
     @Deployment
     public static WebArchive createDeployment() {
-        WebArchive war = ShrinkWrap.create(WebArchive.class, "ArquillianTest.war")
+        WebArchive war = ShrinkWrap.create(WebArchive.class, "ArquillianTest.war");
+
+        File[] files = Maven.resolver()
+                .loadPomFromFile("pom.xml")
+                .importRuntimeAndTestDependencies()
+                .resolve()
+                .withTransitivity()
+                .asFile();
+
+        war.addAsLibraries(files)
                 .addPackage(OrganisationService.class.getPackage())
                 .addPackage(OrganisationServiceBean.class.getPackage())
                 .addPackage(RoleService.class.getPackage())
@@ -73,19 +80,6 @@ public class DeploymentFactory {
                 .addAsResource("notification.properties")
                 .addAsWebInfResource("META-INF/beans.xml", "beans.xml");
 
-        File[] files = Maven.configureResolver().loadPomFromFile("pom.xml")
-                .importRuntimeAndTestDependencies().resolve(
-                        "fish.focus.uvms.usm:Information-Service",
-                        "fish.focus.uvms.usm:Authentication-Service",
-                        "fish.focus.uvms.usm:Information-Model",
-                        "fish.focus.uvms.usm:Authentication-Model",
-                        "fish.focus.uvms.audit:audit-model")
-                .withoutTransitivity().asFile();
-        war.addAsLibraries(files);
         return war;
     }
-
-    public DeploymentFactory() {
-    }
-
 }
