@@ -21,7 +21,7 @@
         <uvms.pom.version>3.34</uvms.pom.version>
         <uvms.commons.version>4.2.0</uvms.commons.version>
         <sun.jersey.version>1.19.4</sun.jersey.version>
-        <org.glassfish.jersey.version>2.38</org.glassfish.jersey.version>
+        <org.glassfish.jersey.version>2.48</org.glassfish.jersey.version>
     </properties>
 
     <dependencyManagement>
