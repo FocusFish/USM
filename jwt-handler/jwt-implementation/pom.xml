@@ -1,52 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>fish.focus.uvms.usm</groupId>
-		<artifactId>jwt-handler</artifactId>
-		<version>2.2.16-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <groupId>fish.focus.uvms.usm</groupId>
+        <artifactId>jwt-handler</artifactId>
+        <version>2.2.16-SNAPSHOT</version>
+    </parent>
 
-	<artifactId>jwt-handler-impl</artifactId>
-	<packaging>jar</packaging>
-	<name>JWT Handler</name>
+    <artifactId>jwt-handler-impl</artifactId>
+    <packaging>jar</packaging>
+    <name>JWT Handler</name>
 
-	<properties>
-		<docker.dev.start.phase>test-compile</docker.dev.start.phase>
-		<docker.dev.prestop.phase>validate</docker.dev.prestop.phase>
-		<jjwt.version>0.11.5</jjwt.version>
-	</properties>
+    <properties>
+        <docker.dev.start.phase>test-compile</docker.dev.start.phase>
+        <docker.dev.prestop.phase>validate</docker.dev.prestop.phase>
+        <jjwt.version>0.11.5</jjwt.version>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>fish.focus.uvms.usm</groupId>
-			<artifactId>jwt-handler-api</artifactId>
-			<version>2.2.16-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt-api</artifactId>
-			<version>${jjwt.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt-impl</artifactId>
-			<version>${jjwt.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>fish.focus.uvms.maven</groupId>
-			<artifactId>uvms-pom-arquillian-deps</artifactId>
-			<type>pom</type>
-			<exclusions>
-				<exclusion>
-					<groupId>org.eu.ingwar.tools</groupId>
-					<artifactId>arquillian-suite-extension</artifactId>
-				</exclusion>
-			</exclusions>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>fish.focus.uvms.usm</groupId>
+            <artifactId>jwt-handler-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>${jjwt.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>fish.focus.uvms.maven</groupId>
+            <artifactId>uvms-pom-arquillian-deps</artifactId>
+            <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eu.ingwar.tools</groupId>
+                    <artifactId>arquillian-suite-extension</artifactId>
+                </exclusion>
+            </exclusions>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>

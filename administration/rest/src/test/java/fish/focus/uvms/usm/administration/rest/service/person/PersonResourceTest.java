@@ -8,10 +8,8 @@ import fish.focus.uvms.usm.administration.rest.ResponseWrapper;
 import fish.focus.uvms.usm.administration.rest.ServiceArrayResponse;
 import fish.focus.uvms.usm.administration.rest.service.AdministrationRestClient;
 import fish.focus.uvms.usm.administration.rest.service.BuildAdministrationDeployment;
-import fish.focus.uvms.usm.administration.rest.service.person.ContactDetailsRequest;
 import org.jboss.arquillian.container.test.api.OperateOnDeployment;
 import org.jboss.arquillian.junit.Arquillian;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

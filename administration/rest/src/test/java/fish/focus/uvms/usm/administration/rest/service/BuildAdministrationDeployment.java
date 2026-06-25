@@ -24,7 +24,6 @@ public abstract class BuildAdministrationDeployment {
 
     @Deployment(name = "normal")
     public static Archive<?> createDeployment() {
-
         WebArchive testWar = ShrinkWrap.create(WebArchive.class, "test.war");
 
         File[] files = Maven.resolver()
@@ -38,8 +37,6 @@ public abstract class BuildAdministrationDeployment {
 
         testWar.addPackages(true, "fish.focus.uvms.usm.administration.rest");
 
-        testWar.delete("/WEB-INF/web.xml");
         return testWar;
     }
-
 }
