@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 import static javax.ws.rs.core.Response.Status.OK;
+import static javax.ws.rs.core.Response.Status.UNAUTHORIZED;
 import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
@@ -37,12 +38,55 @@ public class PolicyResourceIT extends BuildAdministrationDeployment {
     public void testFindPolicies() {
         AuthenticationJwtResponse auth = restClient.authenticateUser(USM_ADMIN, PASSWORD);
 
-        Response response = restClient.findPolicies(auth.getJwtoken(), "password.minLength", POL_PASSWORD);
-        assertEquals(OK.getStatusCode(), response.getStatus());
+        findAndVerifyPolicies(auth, "password.minLength", POL_PASSWORD);
+    }
 
-        List<Policy> policies = response.readEntity(new javax.ws.rs.core.GenericType<>() {});
-        assertNotNull(policies);
-        assertFalse(policies.isEmpty());
+    private void findAndVerifyPolicies(AuthenticationJwtResponse auth, String name, String polAuthentication) {
+        try(Response response = restClient.findPolicies(auth.getJwtoken(), name, polAuthentication)) {
+            assertEquals(OK.getStatusCode(), response.getStatus());
+
+            List<Policy> policies = response.readEntity(new GenericType<>() {});
+            assertNotNull(policies);
+            assertFalse(policies.isEmpty());
+        }
+    }
+
+    @Test
+    @OperateOnDeployment("normal")
+    public void testFindPoliciesUsmAdmin() {
+        AuthenticationJwtResponse auth = restClient.authenticateUser(USM_ADMIN, PASSWORD);
+
+        findAndVerifyPolicies(auth, "ldap.enabled", POL_AUTHENTICATION);
+    }
+
+    @Test
+    @OperateOnDeployment("normal")
+    public void testFindPoliciesUsmUser() {
+        AuthenticationJwtResponse auth = restClient.authenticateUser("usm_user", PASSWORD);
+
+        String name = "ldap.enabled";
+        try (Response response = restClient.findPolicies(auth.getJwtoken(), name, POL_AUTHENTICATION)) {
+            assertEquals(UNAUTHORIZED.getStatusCode(), response.getStatus());
+        }
+    }
+
+    @Test
+    @OperateOnDeployment("normal")
+    public void testFindPoliciesVmsAdminSE() {
+        AuthenticationJwtResponse auth = restClient.authenticateUser("vms_admin_se", PASSWORD);
+
+        findAndVerifyPolicies(auth, "ldap.enabled", POL_AUTHENTICATION);
+    }
+
+    @Test
+    @OperateOnDeployment("normal")
+    public void testFindPoliciesVmsUserFra() {
+        AuthenticationJwtResponse auth = restClient.authenticateUser("vms_user_fra", PASSWORD);
+
+        String name = "ldap.enabled";
+        try (Response response = restClient.findPolicies(auth.getJwtoken(), name, POL_AUTHENTICATION)) {
+            assertEquals(UNAUTHORIZED.getStatusCode(), response.getStatus());
+        }
     }
 
     @Test
