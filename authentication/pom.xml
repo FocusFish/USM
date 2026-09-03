@@ -9,8 +9,8 @@
     </parent>
 
     <artifactId>authentication-module</artifactId>
-    <packaging>pom</packaging>
     <name>USM Authentication Module</name>
+    <packaging>pom</packaging>
 
     <modules>
         <module>model</module>

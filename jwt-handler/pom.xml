@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>jwt-handler</artifactId>
+    <name>JWT Handler pom</name>
     <packaging>pom</packaging>
 
     <modules>

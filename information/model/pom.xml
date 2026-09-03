@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>information-model</artifactId>
+    <name>Information Model</name>
     <packaging>jar</packaging>
 
     <dependencies>

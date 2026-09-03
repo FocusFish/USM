@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>administration-ecas-rest-service</artifactId>
+    <name>Administration ECAS Rest Service</name>
     <packaging>war</packaging>
 
     <properties>

@@ -11,8 +11,8 @@
     </parent>
 
     <artifactId>administration-module</artifactId>
-    <packaging>pom</packaging>
     <name>USM Administration Module</name>
+    <packaging>pom</packaging>
 
     <modules>
         <module>service</module>

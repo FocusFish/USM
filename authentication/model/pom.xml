@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>authentication-model</artifactId>
+    <name>Authentication Model</name>
     <packaging>jar</packaging>
 
     <dependencies>

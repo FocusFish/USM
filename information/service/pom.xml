@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>information-service</artifactId>
+    <name>Information Service</name>
     <packaging>jar</packaging>
 
     <dependencies>

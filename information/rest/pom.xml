@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>information-rest-service</artifactId>
+    <name>Information Rest Service</name>
     <packaging>war</packaging>
 
     <properties>
