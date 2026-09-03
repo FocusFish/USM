@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>administration-service</artifactId>
+    <name>Administration Service</name>
     <packaging>jar</packaging>
 
     <dependencies>

@@ -8,7 +8,9 @@
         <artifactId>information-module</artifactId>
         <version>3.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>information-http-rest-service</artifactId>
+    <name>Information HTTP Rest Service</name>
     <packaging>war</packaging>
 
     <properties>

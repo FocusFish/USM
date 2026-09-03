@@ -10,8 +10,8 @@
     </parent>
 
     <artifactId>information-module</artifactId>
-    <packaging>pom</packaging>
     <name>USM Information Module</name>
+    <packaging>pom</packaging>
 
     <modules>
         <module>model</module>

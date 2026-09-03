@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>administration-http-rest-service</artifactId>
+    <name>Administration HTTP Rest Service</name>
     <packaging>war</packaging>
 
     <properties>

@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>authentication-https-rest-service</artifactId>
+    <name>Authentication HTTPS Rest Service</name>
     <packaging>war</packaging>
 
     <properties>
