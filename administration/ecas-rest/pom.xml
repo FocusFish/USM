@@ -6,10 +6,11 @@
     <parent>
         <groupId>fish.focus.uvms.usm</groupId>
         <artifactId>administration-module</artifactId>
-        <version>3.0.0</version>
+        <version>3.0.1</version>
     </parent>
 
     <artifactId>administration-ecas-rest-service</artifactId>
+    <name>Administration ECAS Rest Service</name>
     <packaging>war</packaging>
 
     <properties>

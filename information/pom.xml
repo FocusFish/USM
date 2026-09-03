@@ -4,14 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>fish.focus.uvms.usm</groupId>
-        <version>3.0.0</version>
+        <version>3.0.1</version>
         <artifactId>backend-modules</artifactId>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>information-module</artifactId>
-    <packaging>pom</packaging>
     <name>USM Information Module</name>
+    <packaging>pom</packaging>
 
     <modules>
         <module>model</module>

@@ -10,8 +10,9 @@
     </parent>
 
     <groupId>fish.focus.uvms.usm</groupId>
-    <version>3.0.0</version>
     <artifactId>backend-modules</artifactId>
+    <name>USM Backend Modules</name>
+    <version>3.0.1</version>
     <packaging>pom</packaging>
 
     <properties>
