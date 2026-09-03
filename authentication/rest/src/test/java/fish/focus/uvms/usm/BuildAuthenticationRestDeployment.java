@@ -11,7 +11,8 @@ copy of the GNU General Public License along with the IFDM Suite. If not, see <h
 package fish.focus.uvms.usm;
 
 import fish.focus.uvms.commons.date.JsonBConfigurator;
-import fish.focus.uvms.rest.security.InternalRestTokenHandler;
+import fish.focus.uvms.usm.jwt.DefaultJwtTokenHandler;
+import fish.focus.uvms.usm.jwt.JwtTokenHandler;
 import org.eu.ingwar.tools.arquillian.extension.suite.annotations.ArquillianSuiteDeployment;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.Archive;
@@ -24,19 +25,23 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import java.io.File;
+import java.time.Instant;
+import java.util.Collections;
 
 @ArquillianSuiteDeployment
 public abstract class BuildAuthenticationRestDeployment {
 
-    @Inject
-    private InternalRestTokenHandler tokenHandler;
-
     private static final String INTERNAL_TARGET_URL = "http://localhost:8080/test/rest/";
     private static final String EXTERNAL_TARGET_URL = "http://localhost:28080/test/rest/";
 
+    @Inject
+    private JwtTokenHandler handler;
+
+    private String token;
+    private Instant validTo;
+
     @Deployment(name = "normal")
     public static Archive<?> createDeployment() {
-
         WebArchive testWar = ShrinkWrap.create(WebArchive.class, "test.war");
 
         File[] files = Maven.resolver()
@@ -62,6 +67,16 @@ public abstract class BuildAuthenticationRestDeployment {
     }
 
     protected String getTokenInternalRest() {
-        return tokenHandler.createAndFetchToken("user");
+        String username = "user";
+        if (token == null || !isValid()) {
+            validTo = Instant.now().plusMillis(DefaultJwtTokenHandler.DEFAULT_TTL);
+            token = handler.createToken(username, Collections.singletonList(0));
+        }
+
+        return token;
+    }
+
+    private boolean isValid() {
+        return this.validTo.isAfter(Instant.now());
     }
 }

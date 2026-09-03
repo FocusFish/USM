@@ -1,35 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>fish.focus.uvms.usm</groupId>
-		<version>2.2.15</version>
-		<artifactId>backend-modules</artifactId>
-		<relativePath>../pom.xml</relativePath>
-	</parent>
-	
-	<artifactId>Authentication-Module</artifactId>
-	<packaging>pom</packaging>
-	<name>USM Authentication Module</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>fish.focus.uvms.usm</groupId>
+        <version>3.0.0</version>
+        <artifactId>backend-modules</artifactId>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
 
-	<modules>
-		<module>model</module>
-		<module>service</module>
-		<module>rest</module>
-		<module>https-rest</module>
-	</modules>
-	
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>fish.focus.uvms.usm</groupId>
-				<artifactId>Authentication-Model</artifactId>
-				<version>2.2.15</version>
-			</dependency>
-			<dependency>
-				<groupId>fish.focus.uvms.usm</groupId>
-				<artifactId>Authentication-Service</artifactId>
-				<version>2.2.15</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+    <artifactId>authentication-module</artifactId>
+    <packaging>pom</packaging>
+    <name>USM Authentication Module</name>
+
+    <modules>
+        <module>model</module>
+        <module>service</module>
+        <module>rest</module>
+        <module>https-rest</module>
+    </modules>
 </project>

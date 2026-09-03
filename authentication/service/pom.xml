@@ -4,10 +4,10 @@
 
 	<parent>
 		<groupId>fish.focus.uvms.usm</groupId>
-		<artifactId>Authentication-Module</artifactId>
-		<version>2.2.15</version>
+		<artifactId>authentication-module</artifactId>
+		<version>3.0.0</version>
 	</parent>
-	<artifactId>Authentication-Service</artifactId>
+	<artifactId>authentication-service</artifactId>
 	<packaging>jar</packaging>
 
 	<properties>
@@ -17,7 +17,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>fish.focus.uvms.usm</groupId>
-			<artifactId>Authentication-Model</artifactId>
+			<artifactId>authentication-model</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>fish.focus.uvms.maven</groupId>
