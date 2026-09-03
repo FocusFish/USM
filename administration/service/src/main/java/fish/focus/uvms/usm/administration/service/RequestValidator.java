@@ -1,19 +1,17 @@
 package fish.focus.uvms.usm.administration.service;
 
-import fish.focus.uvms.usm.information.domain.Context;
-import fish.focus.uvms.usm.information.domain.Feature;
-import fish.focus.uvms.usm.information.domain.UserContext;
-import fish.focus.uvms.usm.information.domain.UserContextQuery;
-import fish.focus.uvms.usm.information.service.InformationService;
 import fish.focus.uvms.usm.administration.domain.ServiceRequest;
 import fish.focus.uvms.usm.administration.domain.USMApplication;
 import fish.focus.uvms.usm.administration.domain.USMFeature;
 import fish.focus.uvms.usm.administration.domain.UnauthorisedException;
+import fish.focus.uvms.usm.information.domain.Context;
+import fish.focus.uvms.usm.information.domain.UserContext;
+import fish.focus.uvms.usm.information.domain.UserContextQuery;
+import fish.focus.uvms.usm.information.service.InformationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -39,52 +37,73 @@ public class RequestValidator {
      * Asserts that the provided service request is valid and optionally,
      * that the service requester is allowed to use the specified feature.
      *
-     * @param input   the service request to be validated
-     * @param feature the optional feature to which the service requester must
-     *                have been granted a right to use
+     * @param input           the service request to be validated
+     * @param requiredFeature the optional feature to which the service requester must
+     *                        have been granted a right to use
      * @throws IllegalArgumentException if the service request is null, empty or
      *                                  incomplete
      * @throws UnauthorisedException    if the service requester is not allowed
      *                                  to use the specified feature
      */
-    public void assertValid(ServiceRequest input, USMFeature feature)
+    public void assertValid(ServiceRequest input, USMFeature requiredFeature)
             throws IllegalArgumentException, UnauthorisedException {
         assertNotNull("request", input);
         assertNotEmpty("requester", input.getRequester());
 
-        if (feature != null) {
-            UserContextQuery query = new UserContextQuery();
-            query.setApplicationName(USMApplication.USM.name());
-            query.setUserName(input.getRequester());
-            UserContext ctx = infoService.getUserContext(query);
-            boolean isAuthorised = false;
-            if (ctx != null && ctx.getContextSet() != null) {
-                for (Context c : ctx.getContextSet().getContexts()) {
-                    if (c.getRole() != null &&
-                            (input.getRoleName() == null || input.getRoleName().equals(c.getRole().getRoleName())) &&
-                            (c.getScope() == null || c.getScope().getScopeName().equals(input.getScopeName()))) {
-                        for (Feature f : c.getRole().getFeatures()) {
-                            if (USMApplication.USM.name().equals(f.getApplicationName()) &&
-                                    feature.name().equals(f.getFeatureName())) {
-                                isAuthorised = true;
-                                break;
-                            }
-                        }
-                    }
-                    if (isAuthorised) {
-                        break;
-                    }
-                }
+        if (requiredFeature == null) {
+            return;
+        }
+
+        String applicationName = USMApplication.USM.name();
+        UserContext userContext = getUserContext(input, applicationName);
+
+        if (userContext == null || userContext.getContextSet() == null
+                || userContext.getContextSet().getContexts() == null) {
+            logAndThrowUnauthorizedException(input, requiredFeature);
+        }
+
+        for (Context context : userContext.getContextSet().getContexts()) {
+            if (context.getRole() == null) {
+                continue;
             }
 
-            if (!isAuthorised) {
-                LOGGER.info("User " + input.getRequester() +
-                        " is not authorised for " + feature +
-                        " using context with role " + input.getRoleName() +
-                        " and scope " + input.getScopeName());
-                throw new UnauthorisedException("Not authorised");
+            boolean hasRequestedRole = input.getRoleName() == null // no supplied role => check all roles
+                    || input.getRoleName().equals(context.getRole().getRoleName());
+            boolean hasRequestedScope = context.getScope() == null
+                    || input.getScopeName() == null // no scoped down request => whole role is in scope
+                    || context.getScope().getScopeName().equals(input.getScopeName());
+
+            if (hasRequestedRole
+                    && hasRequestedScope
+                    && hasRequestedFeatureForApplication(context, requiredFeature, applicationName)) {
+                return;
             }
         }
+
+        logAndThrowUnauthorizedException(input, requiredFeature);
+    }
+
+    private UserContext getUserContext(ServiceRequest input, String applicationName) {
+        UserContextQuery query = new UserContextQuery();
+        query.setApplicationName(applicationName);
+        query.setUserName(input.getRequester());
+
+        return infoService.getUserContext(query);
+    }
+
+    private void logAndThrowUnauthorizedException(ServiceRequest input, USMFeature requiredFeature) {
+        LOGGER.info("User {} is not authorised for {} using context with role {} and scope {}",
+                input.getRequester(), requiredFeature, input.getRoleName(), input.getScopeName());
+
+        throw new UnauthorisedException("Not authorised");
+    }
+
+    private boolean hasRequestedFeatureForApplication(Context context, USMFeature requiredFeature, String applicationName) {
+        return context.getRole().getFeatures()
+                .stream()
+                .anyMatch(feature -> applicationName.equals(feature.getApplicationName()) &&
+                        requiredFeature.name().equals(feature.getFeatureName())
+                );
     }
 
     /**
@@ -156,8 +175,8 @@ public class RequestValidator {
     }
 
     protected void assertInList(String name, String[] listOfValues, String value) {
-      List<String> asList = Arrays.asList(listOfValues);
-      assertInList(name, asList, value);
+        List<String> asList = Arrays.asList(listOfValues);
+        assertInList(name, asList, value);
     }
 
     protected void assertInList(String name, List<String> listOfValues, String value) {
